@@ -1,12 +1,13 @@
 os: osx
-osx_image: xcode11
 language: swift
+xcode_project: TelloSwift.xcodeproj
 matrix:
   include:
-    - osx_image: xcode11
+    - osx_image: xcode11.2
       env: PLATFORM="iOS"
-    - osx_image: xcode11
+      xcode_scheme: TelloSwift
+      xcode_destination: platform=iOS Simulator,OS=13.2.2,name=iPhone 11 Pro
+    - osx_image: xcode11.2
       env: PLATFORM="macOS"
+      xcode_scheme: TelloSwiftTests-macOS
 
-xcode_project: TelloSwift.xcodeproj
-xcode_scheme: TelloSwift
