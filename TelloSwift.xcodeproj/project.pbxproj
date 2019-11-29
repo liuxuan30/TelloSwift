@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		130170AB2382C995008A7E86 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 130170AA2382C995008A7E86 /* NIO */; };
+		130170AD2382C995008A7E86 /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 130170AC2382C995008A7E86 /* NIOConcurrencyHelpers */; };
+		130170AF2382C995008A7E86 /* NIOTestUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 130170AE2382C995008A7E86 /* NIOTestUtils */; };
+		130170B12382C995008A7E86 /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = 130170B02382C995008A7E86 /* NIOFoundationCompat */; };
+		130D7B202386C99800509A7A /* MockTelloHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */; };
+		133601FA238952590092CE6F /* DroneTello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133601F9238952590092CE6F /* DroneTello.swift */; };
+		133601FC2389539B0092CE6F /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133601FB2389539B0092CE6F /* CameraControl.swift */; };
+		134E237B238D52F70092BAD4 /* TelloVideoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E237A238D52F70092BAD4 /* TelloVideoHandler.swift */; };
+		1371106C238EAF5200E396A4 /* TelloFlightControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371106B238EAF5200E396A4 /* TelloFlightControl.swift */; };
+		13EF3EDF238A962C00F85284 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EF3EDE238A962C00F85284 /* Utils.swift */; };
+		13FC2C7F238918F700FF2AD8 /* TelloCommander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC2C7E238918F700FF2AD8 /* TelloCommander.swift */; };
+		13FC2C8123891D8000FF2AD8 /* Tello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC2C8023891D8000FF2AD8 /* Tello.swift */; };
+		B60C40DD2382377D008F1905 /* TelloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60C40D32382377D008F1905 /* TelloSwift.framework */; };
+		B60C40E22382377D008F1905 /* TelloFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C40E12382377D008F1905 /* TelloFieldTests.swift */; };
+		B60C40E42382377D008F1905 /* TelloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B60C40D62382377D008F1905 /* TelloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B60C413E2383784A008F1905 /* TelloComandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C413D2383784A008F1905 /* TelloComandHandler.swift */; };
+		B66378392384C4B700D15D51 /* HandlerTestServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66378382384C4B700D15D51 /* HandlerTestServer.swift */; };
+		B67851B2238B97A900DB5B90 /* TelloMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67851B1238B97A900DB5B90 /* TelloMotion.swift */; };
+		B67851B4238CBBDA00DB5B90 /* TelloStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67851B3238CBBDA00DB5B90 /* TelloStateHandler.swift */; };
+		B68AFDC2238D08C1000B1B83 /* MissionPadControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AFDC1238D08C1000B1B83 /* MissionPadControl.swift */; };
+		B68AFDC4238D098C000B1B83 /* EDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AFDC3238D098C000B1B83 /* EDU.swift */; };
+		B6AEAEF5238F740000FB37ED /* MockTelloFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */; };
+		B6B0E661238E54BD003A7984 /* MockTelloStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */; };
+		B6B0E663238E54FA003A7984 /* TelloSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E662238E54FA003A7984 /* TelloSimulator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B60C40DE2382377D008F1905 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B60C40CA2382377D008F1905 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B60C40D22382377D008F1905;
+			remoteInfo = TelloSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloHandlerTests.swift; sourceTree = "<group>"; };
+		133601F9238952590092CE6F /* DroneTello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneTello.swift; sourceTree = "<group>"; };
+		133601FB2389539B0092CE6F /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
+		134E237A238D52F70092BAD4 /* TelloVideoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloVideoHandler.swift; sourceTree = "<group>"; };
+		1371106B238EAF5200E396A4 /* TelloFlightControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloFlightControl.swift; sourceTree = "<group>"; };
+		13EF3EDE238A962C00F85284 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		13FC2C7E238918F700FF2AD8 /* TelloCommander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloCommander.swift; sourceTree = "<group>"; };
+		13FC2C8023891D8000FF2AD8 /* Tello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tello.swift; sourceTree = "<group>"; };
+		B60C40D32382377D008F1905 /* TelloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TelloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60C40D62382377D008F1905 /* TelloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelloSwift.h; sourceTree = "<group>"; };
+		B60C40D72382377D008F1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B60C40DC2382377D008F1905 /* TelloSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelloSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60C40E12382377D008F1905 /* TelloFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloFieldTests.swift; sourceTree = "<group>"; };
+		B60C40E32382377D008F1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B60C413D2383784A008F1905 /* TelloComandHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloComandHandler.swift; sourceTree = "<group>"; };
+		B66378382384C4B700D15D51 /* HandlerTestServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerTestServer.swift; sourceTree = "<group>"; };
+		B67851B1238B97A900DB5B90 /* TelloMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloMotion.swift; sourceTree = "<group>"; };
+		B67851B3238CBBDA00DB5B90 /* TelloStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloStateHandler.swift; sourceTree = "<group>"; };
+		B68AFDC1238D08C1000B1B83 /* MissionPadControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPadControl.swift; sourceTree = "<group>"; };
+		B68AFDC3238D098C000B1B83 /* EDU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDU.swift; sourceTree = "<group>"; };
+		B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloFlightTests.swift; sourceTree = "<group>"; };
+		B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloStateTests.swift; sourceTree = "<group>"; };
+		B6B0E662238E54FA003A7984 /* TelloSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloSimulator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B60C40D02382377D008F1905 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				130170B12382C995008A7E86 /* NIOFoundationCompat in Frameworks */,
+				130170AB2382C995008A7E86 /* NIO in Frameworks */,
+				130170AD2382C995008A7E86 /* NIOConcurrencyHelpers in Frameworks */,
+				130170AF2382C995008A7E86 /* NIOTestUtils in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B60C40D92382377D008F1905 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B60C40DD2382377D008F1905 /* TelloSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B60C40C92382377D008F1905 = {
+			isa = PBXGroup;
+			children = (
+				B60C40D52382377D008F1905 /* TelloSwift */,
+				B60C40E02382377D008F1905 /* TelloSwiftTests */,
+				B60C40D42382377D008F1905 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B60C40D42382377D008F1905 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B60C40D32382377D008F1905 /* TelloSwift.framework */,
+				B60C40DC2382377D008F1905 /* TelloSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B60C40D52382377D008F1905 /* TelloSwift */ = {
+			isa = PBXGroup;
+			children = (
+				B60C40D62382377D008F1905 /* TelloSwift.h */,
+				B60C40D72382377D008F1905 /* Info.plist */,
+				B60C413D2383784A008F1905 /* TelloComandHandler.swift */,
+				B67851B3238CBBDA00DB5B90 /* TelloStateHandler.swift */,
+				134E237A238D52F70092BAD4 /* TelloVideoHandler.swift */,
+				B68AFDC3238D098C000B1B83 /* EDU.swift */,
+				133601FB2389539B0092CE6F /* CameraControl.swift */,
+				133601F9238952590092CE6F /* DroneTello.swift */,
+				13FC2C7E238918F700FF2AD8 /* TelloCommander.swift */,
+				B67851B1238B97A900DB5B90 /* TelloMotion.swift */,
+				B68AFDC1238D08C1000B1B83 /* MissionPadControl.swift */,
+				1371106B238EAF5200E396A4 /* TelloFlightControl.swift */,
+				13FC2C8023891D8000FF2AD8 /* Tello.swift */,
+				13EF3EDE238A962C00F85284 /* Utils.swift */,
+			);
+			path = TelloSwift;
+			sourceTree = "<group>";
+		};
+		B60C40E02382377D008F1905 /* TelloSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				B66378382384C4B700D15D51 /* HandlerTestServer.swift */,
+				B6B0E662238E54FA003A7984 /* TelloSimulator.swift */,
+				B60C40E12382377D008F1905 /* TelloFieldTests.swift */,
+				130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */,
+				B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */,
+				B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */,
+				B60C40E32382377D008F1905 /* Info.plist */,
+			);
+			path = TelloSwiftTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B60C40CE2382377D008F1905 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B60C40E42382377D008F1905 /* TelloSwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B60C40D22382377D008F1905 /* TelloSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B60C40E72382377D008F1905 /* Build configuration list for PBXNativeTarget "TelloSwift" */;
+			buildPhases = (
+				B60C40CE2382377D008F1905 /* Headers */,
+				B60C40CF2382377D008F1905 /* Sources */,
+				B60C40D02382377D008F1905 /* Frameworks */,
+				B60C40D12382377D008F1905 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TelloSwift;
+			packageProductDependencies = (
+				130170AA2382C995008A7E86 /* NIO */,
+				130170AC2382C995008A7E86 /* NIOConcurrencyHelpers */,
+				130170AE2382C995008A7E86 /* NIOTestUtils */,
+				130170B02382C995008A7E86 /* NIOFoundationCompat */,
+			);
+			productName = TelloSwift;
+			productReference = B60C40D32382377D008F1905 /* TelloSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B60C40DB2382377D008F1905 /* TelloSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B60C40EA2382377D008F1905 /* Build configuration list for PBXNativeTarget "TelloSwiftTests" */;
+			buildPhases = (
+				B60C40D82382377D008F1905 /* Sources */,
+				B60C40D92382377D008F1905 /* Frameworks */,
+				B60C40DA2382377D008F1905 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B60C40DF2382377D008F1905 /* PBXTargetDependency */,
+			);
+			name = TelloSwiftTests;
+			productName = TelloSwiftTests;
+			productReference = B60C40DC2382377D008F1905 /* TelloSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B60C40CA2382377D008F1905 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Xuan Liu";
+				TargetAttributes = {
+					B60C40D22382377D008F1905 = {
+						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
+					};
+					B60C40DB2382377D008F1905 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B60C40CD2382377D008F1905 /* Build configuration list for PBXProject "TelloSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B60C40C92382377D008F1905;
+			packageReferences = (
+				130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
+			productRefGroup = B60C40D42382377D008F1905 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B60C40D22382377D008F1905 /* TelloSwift */,
+				B60C40DB2382377D008F1905 /* TelloSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B60C40D12382377D008F1905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B60C40DA2382377D008F1905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B60C40CF2382377D008F1905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13FC2C7F238918F700FF2AD8 /* TelloCommander.swift in Sources */,
+				B67851B4238CBBDA00DB5B90 /* TelloStateHandler.swift in Sources */,
+				134E237B238D52F70092BAD4 /* TelloVideoHandler.swift in Sources */,
+				133601FC2389539B0092CE6F /* CameraControl.swift in Sources */,
+				B60C413E2383784A008F1905 /* TelloComandHandler.swift in Sources */,
+				133601FA238952590092CE6F /* DroneTello.swift in Sources */,
+				1371106C238EAF5200E396A4 /* TelloFlightControl.swift in Sources */,
+				B68AFDC2238D08C1000B1B83 /* MissionPadControl.swift in Sources */,
+				B68AFDC4238D098C000B1B83 /* EDU.swift in Sources */,
+				13FC2C8123891D8000FF2AD8 /* Tello.swift in Sources */,
+				13EF3EDF238A962C00F85284 /* Utils.swift in Sources */,
+				B67851B2238B97A900DB5B90 /* TelloMotion.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B60C40D82382377D008F1905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6AEAEF5238F740000FB37ED /* MockTelloFlightTests.swift in Sources */,
+				B66378392384C4B700D15D51 /* HandlerTestServer.swift in Sources */,
+				B60C40E22382377D008F1905 /* TelloFieldTests.swift in Sources */,
+				B6B0E663238E54FA003A7984 /* TelloSimulator.swift in Sources */,
+				B6B0E661238E54BD003A7984 /* MockTelloStateTests.swift in Sources */,
+				130D7B202386C99800509A7A /* MockTelloHandlerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B60C40DF2382377D008F1905 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B60C40D22382377D008F1905 /* TelloSwift */;
+			targetProxy = B60C40DE2382377D008F1905 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B60C40E52382377D008F1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B60C40E62382377D008F1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B60C40E82382377D008F1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = HSX93Q5QCS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TelloSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingzero.TelloSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B60C40E92382377D008F1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = HSX93Q5QCS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TelloSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingzero.TelloSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B60C40EB2382377D008F1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSX93Q5QCS;
+				INFOPLIST_FILE = TelloSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingzero.TelloSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B60C40EC2382377D008F1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSX93Q5QCS;
+				INFOPLIST_FILE = TelloSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingzero.TelloSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B60C40CD2382377D008F1905 /* Build configuration list for PBXProject "TelloSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B60C40E52382377D008F1905 /* Debug */,
+				B60C40E62382377D008F1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B60C40E72382377D008F1905 /* Build configuration list for PBXNativeTarget "TelloSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B60C40E82382377D008F1905 /* Debug */,
+				B60C40E92382377D008F1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B60C40EA2382377D008F1905 /* Build configuration list for PBXNativeTarget "TelloSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B60C40EB2382377D008F1905 /* Debug */,
+				B60C40EC2382377D008F1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		130170AA2382C995008A7E86 /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		130170AC2382C995008A7E86 /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		130170AE2382C995008A7E86 /* NIOTestUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOTestUtils;
+		};
+		130170B02382C995008A7E86 /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 130170A92382C995008A7E86 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B60C40CA2382377D008F1905 /* Project object */;
+}
