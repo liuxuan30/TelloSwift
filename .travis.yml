@@ -1,0 +1,12 @@
+os: osx
+osx_image: xcode11
+language: swift
+matrix:
+  include:
+    - osx_image: xcode11
+      env: PLATFORM="iOS"
+    - osx_image: xcode11
+      env: PLATFORM="macOS"
+
+xcode_project: TelloSwift.xcodeproj
+xcode_scheme: TelloSwift
