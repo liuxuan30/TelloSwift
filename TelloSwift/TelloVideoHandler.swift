@@ -12,7 +12,7 @@ import NIO
 public protocol TelloVideoSteam: AnyObject {
     /// Obtain video frame, this is dispatched to global user interactive queue.
     /// - Parameter frame: Any
-    func telloStream(receive frame: Any)
+    func telloStream(receive frame: [UInt8])
 }
 
 class TelloVideoHandler: ChannelInboundHandler {
@@ -31,7 +31,7 @@ class TelloVideoHandler: ChannelInboundHandler {
     func channelRead(context: ChannelHandlerContext, data: NIOAny) {
         var buffer = unwrapInboundIn(data).data
         let frame = buffer.readBytes(length: buffer.readableBytes)
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             self?.delegate?.telloStream(receive: frame!)
         }
     }

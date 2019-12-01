@@ -10,11 +10,13 @@ import Foundation
 
 public protocol CameraControl: TelloCommander {
     
+    @discardableResult
     func enable(video enable: Bool) -> Bool
 }
 
 extension CameraControl {
     
+    @discardableResult
     public func enable(video enable: Bool) -> Bool {
         let op = enable ? "streamon" : "streamoff"
         let ok = telloSyncCommand(cmd: op).okToBool()
