@@ -10,7 +10,7 @@ import Foundation
 import NIO
 
 public protocol TelloVideoSteam: AnyObject {
-    /// Obtain video frame, this is guaranteed to be dispatched on main queue.
+    /// Obtain video frame, this is dispatched to global user interactive queue.
     /// - Parameter frame: Any
     func telloStream(receive frame: Any)
 }
@@ -29,7 +29,7 @@ class TelloVideoHandler: ChannelInboundHandler {
     }
 
     func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.delegate?.telloStream(receive: data)
         }
     }
