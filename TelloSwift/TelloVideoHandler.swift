@@ -29,8 +29,10 @@ class TelloVideoHandler: ChannelInboundHandler {
     }
 
     func channelRead(context: ChannelHandlerContext, data: NIOAny) {
+        var buffer = unwrapInboundIn(data).data
+        let frame = buffer.readBytes(length: buffer.readableBytes)
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            self?.delegate?.telloStream(receive: data)
+            self?.delegate?.telloStream(receive: frame!)
         }
     }
 }

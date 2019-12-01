@@ -65,11 +65,11 @@ open class Tello {
 
     weak public var videoDelegate: TelloVideoSteam? {
         get {
-            let h = try? stateChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
+            let h = try? videoChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
             return h?.delegate
         }
         set {
-            let h = try? stateChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
+            let h = try? videoChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
             h?.delegate = newValue
         }
     }

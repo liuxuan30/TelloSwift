@@ -10,7 +10,7 @@ import Foundation
 import NIO
 
 public protocol TelloState: AnyObject {
-    /// Obtain tello state, this is dispatched to utility global queue
+    /// Obtain tello state, this is dispatched to default global queue
     /// - Parameter frame: String?
     func telloState(receive state: String)
 }
@@ -31,14 +31,13 @@ class TelloStateHandler: ChannelInboundHandler {
 
     func channelRead(context: ChannelHandlerContext, data: NIOAny) {
         var buffer = unwrapInboundIn(data).data
-        print("tello state read")
         state += buffer.readString(length: buffer.readableBytes) ?? ""
     }
 
     func channelReadComplete(context: ChannelHandlerContext) {
         let data = state
         state = ""
-        DispatchQueue.global(qos: .utility).async { [weak self] in
+        DispatchQueue.global(qos: .default).async { [weak self] in
             self?.delegate?.telloState(receive: data)
         }
     }
