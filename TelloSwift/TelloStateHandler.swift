@@ -4,13 +4,14 @@
 //
 //  Created by Xuan Liu on 2019/11/26.
 //  Copyright © 2019 Xuan Liu. All rights reserved.
+//  Licensed under Apache License 2.0
 //
 
 import Foundation
 import NIO
 
 public protocol TelloState: AnyObject {
-    /// Obtain tello state, this is guaranteed to be dispatched on main queue.
+    /// Obtain tello state, this is dispatched to default global queue
     /// - Parameter frame: String?
     func telloState(receive state: String)
 }
@@ -37,7 +38,7 @@ class TelloStateHandler: ChannelInboundHandler {
     func channelReadComplete(context: ChannelHandlerContext) {
         let data = state
         state = ""
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global(qos: .default).async { [weak self] in
             self?.delegate?.telloState(receive: data)
         }
     }

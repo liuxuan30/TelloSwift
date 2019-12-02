@@ -4,6 +4,7 @@
 //
 //  Created by Xuan Liu on 2019/11/18.
 //  Copyright © 2019 Xuan Liu. All rights reserved.
+//  Licensed under Apache License 2.0
 //
 
 #import <Foundation/Foundation.h>

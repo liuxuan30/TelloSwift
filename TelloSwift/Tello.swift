@@ -4,6 +4,7 @@
 //
 //  Created by Xuan on 2019/11/18.
 //  Copyright © 2019 Xuan Liu. All rights reserved.
+//  Licensed under Apache License 2.0
 //
 
 import Foundation
@@ -65,11 +66,11 @@ open class Tello {
 
     weak public var videoDelegate: TelloVideoSteam? {
         get {
-            let h = try? stateChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
+            let h = try? videoChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
             return h?.delegate
         }
         set {
-            let h = try? stateChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
+            let h = try? videoChannel.pipeline.handler(type: TelloVideoHandler.self).wait()
             h?.delegate = newValue
         }
     }

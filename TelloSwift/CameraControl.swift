@@ -4,17 +4,20 @@
 //
 //  Created by Xuan on 2019/11/23.
 //  Copyright © 2019 Xuan Liu. All rights reserved.
+//  Licensed under Apache License 2.0
 //
 
 import Foundation
 
 public protocol CameraControl: TelloCommander {
     
+    @discardableResult
     func enable(video enable: Bool) -> Bool
 }
 
 extension CameraControl {
     
+    @discardableResult
     public func enable(video enable: Bool) -> Bool {
         let op = enable ? "streamon" : "streamoff"
         let ok = telloSyncCommand(cmd: op).okToBool()

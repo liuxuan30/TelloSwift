@@ -63,7 +63,6 @@
 		133601FB2389539B0092CE6F /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
 		134E237A238D52F70092BAD4 /* TelloVideoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloVideoHandler.swift; sourceTree = "<group>"; };
 		134F48E0239157F000CC4336 /* TelloSwiftTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TelloSwiftTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		134F48E1239157F000CC4336 /* TelloSwiftTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TelloSwiftTests copy-Info.plist"; path = "/Users/xuan/Development/GitHub/TelloSwift/TelloSwiftTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		1371106B238EAF5200E396A4 /* TelloFlightControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloFlightControl.swift; sourceTree = "<group>"; };
 		13EF3EDE238A962C00F85284 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		13FC2C7E238918F700FF2AD8 /* TelloCommander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloCommander.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		B60C40E12382377D008F1905 /* TelloFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloFieldTests.swift; sourceTree = "<group>"; };
 		B60C40E32382377D008F1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60C413D2383784A008F1905 /* TelloComandHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloComandHandler.swift; sourceTree = "<group>"; };
+		B6285A372395006A0050BB82 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B66378382384C4B700D15D51 /* HandlerTestServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerTestServer.swift; sourceTree = "<group>"; };
 		B67851B1238B97A900DB5B90 /* TelloMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloMotion.swift; sourceTree = "<group>"; };
 		B67851B3238CBBDA00DB5B90 /* TelloStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloStateHandler.swift; sourceTree = "<group>"; };
@@ -83,9 +83,6 @@
 		B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloFlightTests.swift; sourceTree = "<group>"; };
 		B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloStateTests.swift; sourceTree = "<group>"; };
 		B6B0E662238E54FA003A7984 /* TelloSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloSimulator.swift; sourceTree = "<group>"; };
-		B6CC55282390F3EC0094234A /* TelloSwift_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelloSwift_macOS.h; sourceTree = "<group>"; };
-		B6CC55292390F3EC0094234A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6CC55352390F3ED0094234A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,13 +119,11 @@
 		B60C40C92382377D008F1905 = {
 			isa = PBXGroup;
 			children = (
+				B6285A372395006A0050BB82 /* Package.swift */,
 				B60C40D52382377D008F1905 /* TelloSwift */,
 				B60C40E02382377D008F1905 /* TelloSwiftTests */,
-				B6CC55272390F3EC0094234A /* TelloSwift-macOS */,
-				B6CC55322390F3ED0094234A /* TelloSwift-macOSTests */,
 				B60C40D42382377D008F1905 /* Products */,
 				B6CC554F2390F43D0094234A /* Frameworks */,
-				134F48E1239157F000CC4336 /* TelloSwiftTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,23 +170,6 @@
 				B60C40E32382377D008F1905 /* Info.plist */,
 			);
 			path = TelloSwiftTests;
-			sourceTree = "<group>";
-		};
-		B6CC55272390F3EC0094234A /* TelloSwift-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				B6CC55282390F3EC0094234A /* TelloSwift_macOS.h */,
-				B6CC55292390F3EC0094234A /* Info.plist */,
-			);
-			path = "TelloSwift-macOS";
-			sourceTree = "<group>";
-		};
-		B6CC55322390F3ED0094234A /* TelloSwift-macOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				B6CC55352390F3ED0094234A /* Info.plist */,
-			);
-			path = "TelloSwift-macOSTests";
 			sourceTree = "<group>";
 		};
 		B6CC554F2390F43D0094234A /* Frameworks */ = {
@@ -411,7 +389,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HSX93Q5QCS;
-				INFOPLIST_FILE = "TelloSwiftTests copy-Info.plist";
+				INFOPLIST_FILE = TelloSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,7 +414,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HSX93Q5QCS;
-				INFOPLIST_FILE = "TelloSwiftTests copy-Info.plist";
+				INFOPLIST_FILE = TelloSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +574,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -626,7 +604,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
