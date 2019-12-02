@@ -17,7 +17,6 @@
 		134E237B238D52F70092BAD4 /* TelloVideoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E237A238D52F70092BAD4 /* TelloVideoHandler.swift */; };
 		134F48D4239157F000CC4336 /* MockTelloFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */; };
 		134F48D5239157F000CC4336 /* HandlerTestServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66378382384C4B700D15D51 /* HandlerTestServer.swift */; };
-		134F48D6239157F000CC4336 /* TelloFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C40E12382377D008F1905 /* TelloFieldTests.swift */; };
 		134F48D7239157F000CC4336 /* TelloSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E662238E54FA003A7984 /* TelloSimulator.swift */; };
 		134F48D8239157F000CC4336 /* MockTelloStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */; };
 		134F48D9239157F000CC4336 /* MockTelloHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */; };
@@ -27,7 +26,6 @@
 		13FC2C7F238918F700FF2AD8 /* TelloCommander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC2C7E238918F700FF2AD8 /* TelloCommander.swift */; };
 		13FC2C8123891D8000FF2AD8 /* Tello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC2C8023891D8000FF2AD8 /* Tello.swift */; };
 		B60C40DD2382377D008F1905 /* TelloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60C40D32382377D008F1905 /* TelloSwift.framework */; };
-		B60C40E22382377D008F1905 /* TelloFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C40E12382377D008F1905 /* TelloFieldTests.swift */; };
 		B60C40E42382377D008F1905 /* TelloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B60C40D62382377D008F1905 /* TelloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B60C413E2383784A008F1905 /* TelloComandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C413D2383784A008F1905 /* TelloComandHandler.swift */; };
 		B66378392384C4B700D15D51 /* HandlerTestServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66378382384C4B700D15D51 /* HandlerTestServer.swift */; };
@@ -71,7 +69,6 @@
 		B60C40D62382377D008F1905 /* TelloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelloSwift.h; sourceTree = "<group>"; };
 		B60C40D72382377D008F1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60C40DC2382377D008F1905 /* TelloSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelloSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B60C40E12382377D008F1905 /* TelloFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloFieldTests.swift; sourceTree = "<group>"; };
 		B60C40E32382377D008F1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60C413D2383784A008F1905 /* TelloComandHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloComandHandler.swift; sourceTree = "<group>"; };
 		B6285A372395006A0050BB82 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -163,7 +160,6 @@
 			children = (
 				B66378382384C4B700D15D51 /* HandlerTestServer.swift */,
 				B6B0E662238E54FA003A7984 /* TelloSimulator.swift */,
-				B60C40E12382377D008F1905 /* TelloFieldTests.swift */,
 				130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */,
 				B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */,
 				B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */,
@@ -326,7 +322,6 @@
 			files = (
 				134F48D4239157F000CC4336 /* MockTelloFlightTests.swift in Sources */,
 				134F48D5239157F000CC4336 /* HandlerTestServer.swift in Sources */,
-				134F48D6239157F000CC4336 /* TelloFieldTests.swift in Sources */,
 				134F48D7239157F000CC4336 /* TelloSimulator.swift in Sources */,
 				134F48D8239157F000CC4336 /* MockTelloStateTests.swift in Sources */,
 				134F48D9239157F000CC4336 /* MockTelloHandlerTests.swift in Sources */,
@@ -358,7 +353,6 @@
 			files = (
 				B6AEAEF5238F740000FB37ED /* MockTelloFlightTests.swift in Sources */,
 				B66378392384C4B700D15D51 /* HandlerTestServer.swift in Sources */,
-				B60C40E22382377D008F1905 /* TelloFieldTests.swift in Sources */,
 				B6B0E663238E54FA003A7984 /* TelloSimulator.swift in Sources */,
 				B6B0E661238E54BD003A7984 /* MockTelloStateTests.swift in Sources */,
 				130D7B202386C99800509A7A /* MockTelloHandlerTests.swift in Sources */,
