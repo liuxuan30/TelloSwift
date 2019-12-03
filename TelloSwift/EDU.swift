@@ -15,7 +15,7 @@ public protocol EDU {
 
     /// Serial Number, Only available for TELLO SDK 2.0
     ///
-    /// raw data example: 0TQDG7REDB65P9
+    /// raw data example: 0TQDG7REDC65P9
     var sn: String? { get }
 
     /// SDK version, Only available for TELLO SDK 2.0

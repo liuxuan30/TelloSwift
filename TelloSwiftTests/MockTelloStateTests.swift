@@ -103,4 +103,21 @@ class MockTelloStateTests: XCTestCase {
         XCTAssertEqual(tello.roll, -1)
         XCTAssertEqual(tello.yaw, 0)
     }
+    
+    func testEDU() {
+        tello = nil
+        var nonEDU: Tello? = Tello(EDU: false)
+        XCTAssertFalse(nonEDU!.isEDU)
+        nonEDU = nil
+        tello = Tello()
+        XCTAssertTrue(tello.isEDU)
+    }
+    
+    func testSNSDK() {
+        XCTAssertEqual(tello.sn, "0TQDG7REDC65P9")
+        XCTAssertEqual(tello.sdkVersion, "20")
+        tello._isEDU = false
+        XCTAssertNil(tello.sn)
+        XCTAssertNil(tello.sdkVersion)
+    }
 }

@@ -1,6 +1,8 @@
 # TelloSwift  [![Build Status](https://travis-ci.org/liuxuan30/TelloSwift.svg?branch=master)](https://travis-ci.org/liuxuan30/TelloSwift) ![License](https://img.shields.io/github/license/liuxuan30/TelloSwift) [![Codecov](https://img.shields.io/codecov/c/github/liuxuan30/TelloSwift?color=%2352CC0F)](https://codecov.io/gh/liuxuan30/TelloSwift)
 A DJI Tello(plus EDU) Swift Framework, powered by Apple's [SwiftNIO](https://github.com/apple/swift-nio)
-![Logo](https://github.com/liuxuan30/TelloSwift/blob/master/Resources/TelloSwift.png)
+
+![Logo](Resources/TelloSwift.png)
+
 There are already a lot of Tello frameworks in Python, but I don't see a decent one for Apple's platform, especially in Swift. 
 
 Therefore I decided to develop this framework combining latest Swift trend and replaced traditional socket programming fashion with SwiftNIO, an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol.
@@ -77,7 +79,7 @@ At the heart of TelloSwift, TelloCommander is resonsible for sending tello comma
 You can replace them with your own implementations, or just get the promise from `TelloCommander.dispatchCommand()`. You can find more about `EventLoopPromise` from [NIO documentation](https://apple.github.io/swift-nio/docs/current/NIO/Structs/EventLoopPromise.html)
 
 ### TelloMotion, TelloFlightControl and MissionPadControl protocol
-These two protocols encapsulate commands for tello flight control. To turn on mission pad detection, simply call `tello.enable(detection: true` and `setDirection(direction: .both)`
+These protocols encapsulate commands for tello flight control. To turn on mission pad detection, simply call `tello.enable(detection: true` and `setDirection(direction: .both)`
 
 For flight commands that involves speed and and distance, TelloSwift will check if the parameter falls in to the valid range. It would also check if the command requires Tello EDU. If not satisfied, command would return false.
 

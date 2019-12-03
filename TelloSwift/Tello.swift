@@ -18,11 +18,11 @@ public enum FailoverOption {
 
 open class Tello {
     // MARK: Drone private variables
-    internal var _isEDU: Bool = true
+    var _isEDU: Bool = true
     
     // MARK: Mission pad variables
-    internal var _missionPadDetectionEnabled: Bool!
-    internal var _missionPadDirection: MissionPadDirection!
+    var _missionPadDetectionEnabled: Bool!
+    var _missionPadDirection: MissionPadDirection!
     
     // MARK: Commander protocol
     public var telloAddress = "192.168.10.1"
@@ -45,7 +45,7 @@ open class Tello {
     private let stateBootstrap: DatagramBootstrap
     
     // MARK: Tello video stream
-    internal var _videoEnabled: Bool!
+    var _videoEnabled: Bool!
     
     private let videoChannel: Channel
     private let videoBootstrap: DatagramBootstrap
@@ -167,7 +167,7 @@ open class Tello {
     }
     
     /// Only used in unit tests for now.
-    internal func cleanup() {
+    func cleanup() {
         print("[TELLO-DESTROY-]")
         self.commandChannel.close(mode: .all, promise: nil)
         self.stateChannel.close(mode: .all, promise: nil)
