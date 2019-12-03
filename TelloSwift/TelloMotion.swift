@@ -16,6 +16,24 @@ public enum FlipDirection: String {
     case back = "b"
 }
 
+func validate(speed: Int?, distances: [Int]?, speedRange: ClosedRange<Int> = 10...60, distanceRange: ClosedRange<Int> = -500...500, innerRange: ClosedRange<Int> = -20...20) -> Bool {
+    var valid = false
+    if let s = speed {
+        valid = speedRange.contains(s)
+    }
+    
+    var allInside = true
+    if let dist = distances {
+        for d in dist {
+            valid = distanceRange.contains(d)
+            if !valid { break }
+            allInside = allInside && innerRange.contains(d)
+        }
+    }
+    
+    return (distances == nil || distances?.count == 0) ? valid : valid && !allInside
+}
+
 public protocol TelloMotion: TelloCommander {
     var isEDU: Bool  { get }
     
@@ -141,46 +159,23 @@ public extension TelloMotion {
 
     @discardableResult
     func go(to x: Int, y: Int, z: Int, speed: Int) -> Bool {
-        let distanceRange = -500...500
-        let speedRange = 10...100
-        guard
-            distanceRange.contains(x),
-            distanceRange.contains(y),
-            distanceRange.contains(z),
-            speedRange.contains(speed)
-            else { return false }
-
-        let innerRange = -20...20
-        guard
-            (innerRange.contains(x) && innerRange.contains(x) && innerRange.contains(x)) != true
-            else {
-                print("[TELLO] x, y, z fall in to [-20, 20] innerRange.contains(x)")
-                return false
+        let valid = validate(speed: speed, distances: [x, y, z], speedRange: 10...100)
+        guard valid else {
+            print("[TELLO] speed or distance don't satisfy. Either out of range or x, y, z all fall in [-20, 20]")
+            return false
         }
-
         return telloSyncCommand(cmd: "go \(x) \(y) \(z) \(speed)").okToBool()
     }
 
     @discardableResult
     func curve(x1: Int, y1: Int, z1: Int, x2: Int, y2: Int, z2: Int, speed: Int) -> Bool {
-        let distanceRange = -500...500
-        let speedRange = 10...60
-        guard
-            distanceRange.contains(x1),distanceRange.contains(x2),
-            distanceRange.contains(y1),distanceRange.contains(y2),
-            distanceRange.contains(z1),distanceRange.contains(z2),
-            speedRange.contains(speed)
-            else { return false }
-
-        let innerRange = -20...20
-        guard
-            (innerRange.contains(x1) && innerRange.contains(y1) && innerRange.contains(z1)) != true,
-            (innerRange.contains(x2) && innerRange.contains(y2) && innerRange.contains(z2)) != true
-            else {
-                print("[TELLO] x, y, z fall in to [-20, 20] innerRange.contains(x)")
-                return false
+        let valid = validate(speed: speed, distances: [x1, y1, z1]) &&
+            validate(speed: nil, distances: [x2, y2, z2])
+        
+        guard valid else {
+            print("[TELLO] speed or distance don't satisfy. Either out of range or x, y, z all fall in [-20, 20]")
+            return false
         }
-
         return telloSyncCommand(cmd: "curve \(x1) \(y1) \(z1) \(x2) \(y2) \(z2) \(speed)").okToBool()
     }
 

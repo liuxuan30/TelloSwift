@@ -38,6 +38,92 @@ class MockTelloFlightTests: XCTestCase {
         XCTAssertNil(tmpGroup) // check if tello has called deinit
     }
 
+    func testValidateSpeed() {
+        let speedTestsWithRange = ["speed": [9, 10, 11, 19, 20, 21, 50, 59, 60, 61, 99, 100, 101],
+                                   "speedRange": [10...100],
+                                   "expect": [false, true,  true,  true, true, true, true, true, true, true, true, true, false],
+            ] as [String : [Any]]
+
+        let speedTestDefault = ["speed": [9, 10, 11, 19, 20, 21, 50, 59, 60, 61, 99, 100, 101],
+                                "expect": [false, true,  true,  true, true, true, true, true, true, false, false, false, false],
+            ] as [String : [Any]]
+
+        XCTAssertEqual(speedTestsWithRange["speed"]?.count, speedTestsWithRange["expect"]?.count)
+        var speeds = speedTestsWithRange["speed"]!
+        var expects = speedTestsWithRange["expect"]!
+        for i in 0..<speeds.count {
+            let r = validate(speed: (speeds[i] as! Int), distances: nil, speedRange: 10...100)
+            XCTAssertEqual(r, expects[i] as! Bool)
+        }
+
+        XCTAssertEqual(speedTestDefault["speed"]?.count, speedTestDefault["expect"]?.count)
+        speeds = speedTestDefault["speed"]!
+        expects = speedTestDefault["expect"]!
+        for i in 0..<speeds.count {
+            let r = validate(speed: (speeds[i] as! Int), distances: nil)
+            XCTAssertEqual(r, expects[i] as! Bool)
+        }
+    }
+
+    func testValidateDistance() {
+        let distances = ["distance": [(-501, -501, -501), (-500, -501, -501), (-501, -500, -500), (-500, -500, -501), (-500, -500, -500), (0, 0, 0), (19, 19, 19), (19, 20, 19), (20, 20, 20), (20, 20, 21), (20, 21, 21), (21, 21, 21), (0, -20, 100), (499, 500, 500), (500, 500, 500), (500, 500, 501), (501, 501, 501), (-500, 0, 500), (-500, 0, 501)],
+                         "expect": [false, false, false, false, true, false, false, false, false, true, true, true, true, true, true, false, false, true, false]
+        ] as [String : [Any]]
+
+        XCTAssertEqual(distances["distance"]?.count, distances["expect"]?.count)
+        let dists = distances["distance"]!
+        let expects = distances["expect"]!
+        for i in 0..<dists.count {
+            let (x, y, z) = dists[i] as! (Int, Int, Int)
+            let r = validate(speed: nil, distances: [x, y, z])
+            XCTAssertEqual(r, expects[i] as! Bool)
+        }
+    }
+
+    func testValidateNilEmpty() {
+        XCTAssertFalse(validate(speed: nil, distances: nil))
+        XCTAssertFalse(validate(speed: nil, distances: []))
+        XCTAssertFalse(validate(speed: 9, distances: []))
+        XCTAssertTrue(validate(speed: 20, distances: []))
+        XCTAssertFalse(validate(speed: nil, distances: [10, 10, 10]))
+        XCTAssertTrue(validate(speed: nil, distances: [10, 10, 21]))
+        XCTAssertFalse(validate(speed: nil, distances: [10]))
+        XCTAssertTrue(validate(speed: nil, distances: [21]))
+        XCTAssertFalse(validate(speed: nil, distances: [20, 20]))
+        XCTAssertTrue(validate(speed: nil, distances: [20, 21]))
+        XCTAssertFalse(validate(speed: nil, distances: [-501]))
+        XCTAssertTrue(validate(speed: nil, distances: [-500]))
+        XCTAssertFalse(validate(speed: nil, distances: [501]))
+        XCTAssertTrue(validate(speed: nil, distances: [500]))
+        XCTAssertFalse(validate(speed: nil, distances: [-501, 0]))
+        XCTAssertTrue(validate(speed: nil, distances: [0, -500]))
+        XCTAssertFalse(validate(speed: nil, distances: [0, 501]))
+        XCTAssertTrue(validate(speed: nil, distances: [500, 0]))
+        XCTAssertFalse(validate(speed: nil, distances: [501, 501]))
+    }
+
+    func testValidateCombined() {
+        XCTAssertFalse(validate(speed: 9, distances: [-20, -20, -20]))
+        XCTAssertFalse(validate(speed: 10, distances: [10, -20, 10]))
+        XCTAssertTrue(validate(speed: 60, distances: [10, 10, -21]))
+        XCTAssertTrue(validate(speed: 9, distances: [10, 10, 21], speedRange: 9...60))
+        XCTAssertFalse(validate(speed: 10, distances: [10]))
+        XCTAssertTrue(validate(speed: 60, distances: [21]))
+        XCTAssertFalse(validate(speed: 30, distances: [-20, 20]))
+        XCTAssertTrue(validate(speed: 9, distances: [-20, -21]))
+        XCTAssertTrue(validate(speed: 60, distances: [20, 21]))
+        XCTAssertTrue(validate(speed: 60, distances: [-500, 0]))
+        XCTAssertFalse(validate(speed: 20, distances: [-501]))
+        XCTAssertTrue(validate(speed: 100, distances: [-500], speedRange: 10...100))
+        XCTAssertFalse(validate(speed: 10, distances: [501]))
+        XCTAssertTrue(validate(speed: 10, distances: [500]))
+        XCTAssertFalse(validate(speed: 9, distances: [-501, 0]))
+        XCTAssertTrue(validate(speed: 60, distances: [0, -500]))
+        XCTAssertFalse(validate(speed: 9, distances: [0, 501]))
+        XCTAssertTrue(validate(speed: 20, distances: [500, 0]))
+        XCTAssertFalse(validate(speed: 20, distances: [501, 501]))
+    }
+
     func testFlightChain() {
         let tmp = tello.chain("takeoff")?.chain("ccw 90")?.chain("cw 90")?.chain("land")
         XCTAssertNotNil(tmp)

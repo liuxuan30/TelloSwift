@@ -79,7 +79,7 @@ At the heart of TelloSwift, TelloCommander is resonsible for sending tello comma
 You can replace them with your own implementations, or just get the promise from `TelloCommander.dispatchCommand()`. You can find more about `EventLoopPromise` from [NIO documentation](https://apple.github.io/swift-nio/docs/current/NIO/Structs/EventLoopPromise.html)
 
 ### TelloMotion, TelloFlightControl and MissionPadControl protocol
-These two protocols encapsulate commands for tello flight control. To turn on mission pad detection, simply call `tello.enable(detection: true` and `setDirection(direction: .both)`
+These protocols encapsulate commands for tello flight control. To turn on mission pad detection, simply call `tello.enable(detection: true` and `setDirection(direction: .both)`
 
 For flight commands that involves speed and and distance, TelloSwift will check if the parameter falls in to the valid range. It would also check if the command requires Tello EDU. If not satisfied, command would return false.
 

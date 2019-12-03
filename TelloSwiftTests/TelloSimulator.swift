@@ -54,6 +54,10 @@ class TestTelloCommandHandler: ChannelInboundHandler {
             response = failoverResponse
         case "emergency":
             response = failoverResponse
+        case "sn?":
+            response = "0TQDG7REDC65P9"
+        case "sdk?":
+            response = "20"
 
         default:
             response = cmdResponse
