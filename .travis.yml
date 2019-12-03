@@ -10,4 +10,5 @@ matrix:
     - osx_image: xcode11.2
       env: PLATFORM="macOS"
       xcode_scheme: TelloSwiftTests-macOS
-
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

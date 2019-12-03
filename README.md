@@ -1,9 +1,6 @@
-# TelloSwift
+# TelloSwift  [![Build Status](https://travis-ci.org/liuxuan30/TelloSwift.svg?branch=master)](https://travis-ci.org/liuxuan30/TelloSwift) ![License](https://img.shields.io/github/license/liuxuan30/TelloSwift) [![Codecov](https://img.shields.io/codecov/c/github/liuxuan30/TelloSwift?color=%2352CC0F)](https://codecov.io/gh/liuxuan30/TelloSwift)
 A DJI Tello(plus EDU) Swift Framework, powered by Apple's [SwiftNIO](https://github.com/apple/swift-nio)
-
-[![Build Status](https://travis-ci.org/liuxuan30/TelloSwift.svg?branch=master)](https://travis-ci.org/liuxuan30/TelloSwift)
-![License](https://img.shields.io/github/license/liuxuan30/TelloSwift)
-
+![Logo](https://github.com/liuxuan30/TelloSwift/blob/master/Resources/TelloSwift.png)
 There are already a lot of Tello frameworks in Python, but I don't see a decent one for Apple's platform, especially in Swift. 
 
 Therefore I decided to develop this framework combining latest Swift trend and replaced traditional socket programming fashion with SwiftNIO, an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol.
@@ -51,7 +48,6 @@ if tello.battery < 20 {
 print(tello.speed)
 ```
 By default, Tello is initialized as EDU version. If your drone is not EDU, just use another initializer such as
-swift
 ```swift
 public convenience init(localAddr: String, localPort: Int, EDU: Bool)
 ```
