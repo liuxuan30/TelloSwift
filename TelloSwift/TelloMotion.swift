@@ -17,15 +17,18 @@ public enum FlipDirection: String {
 }
 
 func validate(speed: Int?, distances: [Int]?, speedRange: ClosedRange<Int> = 10...60, distanceRange: ClosedRange<Int> = -500...500, innerRange: ClosedRange<Int> = -20...20) -> Bool {
+    guard speed != nil || distances != nil else { return false }
     var valid = false
     if let s = speed {
         valid = speedRange.contains(s)
+    } else {
+        valid = true  // nil speed, pass here
     }
     
     var allInside = true
     if let dist = distances {
         for d in dist {
-            valid = distanceRange.contains(d)
+            valid = valid && distanceRange.contains(d)
             if !valid { break }
             allInside = allInside && innerRange.contains(d)
         }
@@ -67,7 +70,7 @@ public protocol TelloMotion: TelloCommander {
 
     func stop() -> Bool
 
-    func go(to x: Int, y: Int, z: Int, speed: Int) -> Bool
+    func go(x: Int, y: Int, z: Int, speed: Int) -> Bool
 
     func curve(x1: Int, y1: Int, z1: Int, x2: Int, y2: Int, z2: Int, speed: Int) -> Bool
 
@@ -158,7 +161,7 @@ public extension TelloMotion {
     }
 
     @discardableResult
-    func go(to x: Int, y: Int, z: Int, speed: Int) -> Bool {
+    func go(x: Int, y: Int, z: Int, speed: Int) -> Bool {
         let valid = validate(speed: speed, distances: [x, y, z], speedRange: 10...100)
         guard valid else {
             print("[TELLO] speed or distance don't satisfy. Either out of range or x, y, z all fall in [-20, 20]")

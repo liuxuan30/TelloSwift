@@ -82,7 +82,7 @@ class MockTelloFlightTests: XCTestCase {
 
     func testValidateNilEmpty() {
         XCTAssertFalse(validate(speed: nil, distances: nil))
-        XCTAssertFalse(validate(speed: nil, distances: []))
+        XCTAssertTrue(validate(speed: nil, distances: []))
         XCTAssertFalse(validate(speed: 9, distances: []))
         XCTAssertTrue(validate(speed: 20, distances: []))
         XCTAssertFalse(validate(speed: nil, distances: [10, 10, 10]))
@@ -103,18 +103,23 @@ class MockTelloFlightTests: XCTestCase {
     }
 
     func testValidateCombined() {
-        XCTAssertFalse(validate(speed: 9, distances: [-20, -20, -20]))
-        XCTAssertFalse(validate(speed: 10, distances: [10, -20, 10]))
-        XCTAssertTrue(validate(speed: 60, distances: [10, 10, -21]))
+//        XCTAssertFalse(validate(speed: 9, distances: [-20, -20, -20]))
+//        XCTAssertFalse(validate(speed: 10, distances: [10, -20, 10]))
+//        XCTAssertTrue(validate(speed: 60, distances: [10, 10, -21]))
+        XCTAssertFalse(validate(speed: 61, distances: [10, 10, -21]))
         XCTAssertTrue(validate(speed: 9, distances: [10, 10, 21], speedRange: 9...60))
         XCTAssertFalse(validate(speed: 10, distances: [10]))
         XCTAssertTrue(validate(speed: 60, distances: [21]))
+        XCTAssertFalse(validate(speed: 61, distances: [21]))
         XCTAssertFalse(validate(speed: 30, distances: [-20, 20]))
-        XCTAssertTrue(validate(speed: 9, distances: [-20, -21]))
+        XCTAssertFalse(validate(speed: 9, distances: [-20, -21]))
         XCTAssertTrue(validate(speed: 60, distances: [20, 21]))
         XCTAssertTrue(validate(speed: 60, distances: [-500, 0]))
+        XCTAssertFalse(validate(speed: 61, distances: [20, 21]))
+        XCTAssertFalse(validate(speed: 61, distances: [-500, 0]))
         XCTAssertFalse(validate(speed: 20, distances: [-501]))
         XCTAssertTrue(validate(speed: 100, distances: [-500], speedRange: 10...100))
+        XCTAssertFalse(validate(speed: 101, distances: [-500], speedRange: 10...100))
         XCTAssertFalse(validate(speed: 10, distances: [501]))
         XCTAssertTrue(validate(speed: 10, distances: [500]))
         XCTAssertFalse(validate(speed: 9, distances: [-501, 0]))
@@ -227,5 +232,69 @@ class MockTelloFlightTests: XCTestCase {
             e2.fulfill()
         }
         wait(for: [e1, e2], timeout: 1)
+    }
+    
+    func testMovement() {
+        XCTAssertFalse(tello.up(by: 19))
+        XCTAssertTrue(tello.up(by: 20))
+        XCTAssertTrue(tello.up(by: 500))
+        XCTAssertTrue(tello.up(by: 501))
+
+        XCTAssertFalse(tello.down(by: 19))
+        XCTAssertTrue(tello.down(by: 20))
+        XCTAssertTrue(tello.down(by: 500))
+        XCTAssertTrue(tello.down(by: 501))
+
+        XCTAssertFalse(tello.left(by: 19))
+        XCTAssertTrue(tello.left(by: 20))
+        XCTAssertTrue(tello.left(by: 500))
+        XCTAssertTrue(tello.left(by: 501))
+
+        XCTAssertFalse(tello.right(by: 19))
+        XCTAssertTrue(tello.right(by: 20))
+        XCTAssertTrue(tello.right(by: 500))
+        XCTAssertTrue(tello.right(by: 501))
+
+        XCTAssertFalse(tello.forward(by: 19))
+        XCTAssertTrue(tello.forward(by: 20))
+        XCTAssertTrue(tello.forward(by: 500))
+        XCTAssertTrue(tello.forward(by: 501))
+
+        XCTAssertFalse(tello.back(by: 19))
+        XCTAssertTrue(tello.back(by: 20))
+        XCTAssertTrue(tello.back(by: 500))
+        XCTAssertTrue(tello.back(by: 501))
+
+        XCTAssertTrue(tello.cw(by: -90))
+        XCTAssertTrue(tello.cw(by: 361))
+        XCTAssertTrue(tello.cw(by: 360))
+
+        XCTAssertTrue(tello.ccw(by: -90))
+        XCTAssertTrue(tello.ccw(by: 361))
+        XCTAssertTrue(tello.ccw(by: 360))
+
+        XCTAssertTrue(tello.rotate(by: -90, clockwise: true))
+        XCTAssertTrue(tello.rotate(by: 361, clockwise: false))
+        XCTAssertTrue(tello.rotate(by: 360, clockwise: true))
+
+        XCTAssertTrue(tello.flip(to: .back))
+        XCTAssertTrue(tello.flip(to: .forward))
+        XCTAssertTrue(tello.flip(to: .left))
+        XCTAssertTrue(tello.flip(to: .right))
+
+        XCTAssertTrue(tello.stop())
+        XCTAssertTrue(tello.hover())
+
+        XCTAssertFalse(tello.go(x: 10, y: 10, z: 10, speed: 20))
+        XCTAssertTrue(tello.go(x: 50, y: 50, z: 50, speed: 20))
+        XCTAssertFalse(tello.go(x: 10, y: 21, z: 10, speed: 101))
+        XCTAssertTrue(tello.go(x: 10, y: 21, z: 10, speed: 100))
+        
+        XCTAssertFalse(tello.curve(x1: 10, y1: 21, z1: 21, x2: 0, y2: 0, z2: 0, speed: 20))
+        XCTAssertFalse(tello.curve(x1: 10, y1: 21, z1: 21, x2: 21, y2: 0, z2: 0, speed: 61))
+        XCTAssertTrue(tello.curve(x1: 0, y1: 0, z1: 21, x2: 21, y2: 0, z2: 0, speed: 60))
+        XCTAssertFalse(tello.curve(x1: 0, y1: 0, z1: 20, x2: 21, y2: 0, z2: 0, speed: 60))
+        XCTAssertFalse(tello.curve(x1: 0, y1: 0, z1: 21, x2: 21, y2: 0, z2: 0, speed: 61))
+        
     }
 }

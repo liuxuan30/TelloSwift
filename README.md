@@ -81,7 +81,9 @@ You can replace them with your own implementations, or just get the promise from
 ### TelloMotion, TelloFlightControl and MissionPadControl protocol
 These protocols encapsulate commands for tello flight control. To turn on mission pad detection, simply call `tello.enable(detection: true` and `setDirection(direction: .both)`
 
-For flight commands that involves speed and and distance, TelloSwift will check if the parameter falls in to the valid range. It would also check if the command requires Tello EDU. If not satisfied, command would return false.
+For single flight commands taking distance argument, if the distance exceeds max value, it will automatically mod (max value + 1), if it's less then min value, it will return false. For commands only takes angles, it will mod 361.
+
+For flight commands that involves both speed and distance like go/curve/jump, for safety purpose, TelloSwift will check if the parameter falls in to the valid range. It would also check if the command requires Tello EDU. If not satisfied, command would return false.
 
 ###  TelloState and DroneTello protocol
 TelloState is the delegate protocol for receiving tello state raw string from UDP packets. Currently there are no further processing about the state string.
