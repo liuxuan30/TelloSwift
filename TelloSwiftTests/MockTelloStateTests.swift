@@ -41,6 +41,17 @@ class MockTelloStateTests: XCTestCase {
     func testGetSpeed() {
         XCTAssertEqual(tello.speed, 100)
     }
+    
+    func testSetSpeed() {
+        tello.speed = 20
+        XCTAssertFalse(tello.setSpeed(to: -10))
+        XCTAssertFalse(tello.setSpeed(to: 0))
+        XCTAssertFalse(tello.setSpeed(to: 9))
+        XCTAssertTrue(tello.setSpeed(to: 10))
+        XCTAssertTrue(tello.setSpeed(to: 50))
+        XCTAssertTrue(tello.setSpeed(to: 100))
+        XCTAssertFalse(tello.setSpeed(to: 101))
+    }
 
     func testHeight() {
         XCTAssertEqual(tello.height, 150)
@@ -119,5 +130,9 @@ class MockTelloStateTests: XCTestCase {
         tello._isEDU = false
         XCTAssertNil(tello.sn)
         XCTAssertNil(tello.sdkVersion)
+    }
+    
+    func testTrim() {
+        
     }
 }

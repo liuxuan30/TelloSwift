@@ -164,6 +164,14 @@ class MockTelloFlightTests: XCTestCase {
         tmp = tello.chain("left 10", failover: .none)
         XCTAssertNil(tmp)
     }
+    
+    func testTakeoff() {
+        XCTAssertTrue(tello.takeoff())
+        XCTAssertTrue(tello.takeoffAnd(do: "stop"))
+        simulator.cmdResponse = "error"
+        XCTAssertFalse(tello.takeoff())
+        XCTAssertFalse(tello.takeoffAnd(do: "stop"))
+    }
 
     func testTakeoffAndBlock() {
         let expect = XCTestExpectation()

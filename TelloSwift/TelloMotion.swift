@@ -181,6 +181,8 @@ public extension TelloMotion {
 
     @discardableResult
     func setSpeed(to speed: Int) -> Bool {
+        let valid = validate(speed: speed, distances: nil, speedRange: 10...100)
+        guard valid else { return false }
         return telloSyncCommand(cmd: "speed \(speed)").okToBool()
     }
 }
