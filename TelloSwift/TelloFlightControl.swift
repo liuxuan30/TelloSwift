@@ -15,7 +15,7 @@ public protocol TelloFlightControl: TelloMotion {
     
     func takeoffAnd(do cmd: String) -> Bool
     
-    func beforeLand(after shutdown: Bool, do operation: () -> Void)
+    func beforeLand(turnoff shutdown: Bool, do operation: () -> Void)
     
     func beforeLand(do cmd: String, after shutdown: Bool) -> Bool
 }
@@ -42,7 +42,7 @@ extension Tello: TelloFlightControl {
         }
     }
     
-    public func beforeLand(after shutdown: Bool, do operation: () -> Void) {
+    public func beforeLand(turnoff shutdown: Bool, do operation: () -> Void) {
         defer { if shutdown { self.shutdown() } }
         operation()
         land()

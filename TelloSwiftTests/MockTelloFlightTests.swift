@@ -189,7 +189,7 @@ class MockTelloFlightTests: XCTestCase {
 
     func testLandAndBlock() {
         let expect = XCTestExpectation()
-        tello.beforeLand(after: false) {
+        tello.beforeLand(turnoff: false) {
             expect.fulfill()
         }
 
@@ -201,7 +201,7 @@ class MockTelloFlightTests: XCTestCase {
     func testLandAndShutdown() {
         // remember shutdown() is dispatched to main queue
         let expect = XCTestExpectation()
-        tello.beforeLand(after: true) {
+        tello.beforeLand(turnoff: true) {
             expect.fulfill()
         }
         
