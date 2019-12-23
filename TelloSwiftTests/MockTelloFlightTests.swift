@@ -31,13 +31,27 @@ class MockTelloFlightTests: XCTestCase {
         // cleanup the socket and event loop resources, if not called, UT would fail
         tello.cleanup()
         simulator.stop()
+        
+        XCTAssertNil(tello.kaTimer)
 
         weak var tmpGroup = tello.group
         tello = nil
         simulator = nil
         XCTAssertNil(tmpGroup) // check if tello has called deinit
     }
-
+    
+    func testKeepAlive() {
+        tello.keepAlive(every:1)
+        sleep(3)
+        tello.invalidate()
+        XCTAssertNil(tello.kaTimer)
+    }
+    
+    func testImplicitTimerInvalidate() {
+        tello.keepAlive(every:1)
+        sleep(3)
+    }
+    
     func testValidateSpeed() {
         let speedTestsWithRange = ["speed": [9, 10, 11, 19, 20, 21, 50, 59, 60, 61, 99, 100, 101],
                                    "speedRange": [10...100],
