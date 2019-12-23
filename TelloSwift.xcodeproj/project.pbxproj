@@ -36,6 +36,8 @@
 		B6AEAEF5238F740000FB37ED /* MockTelloFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */; };
 		B6B0E661238E54BD003A7984 /* MockTelloStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */; };
 		B6B0E663238E54FA003A7984 /* TelloSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0E662238E54FA003A7984 /* TelloSimulator.swift */; };
+		B6BA601A23AC8FB900AB3238 /* MockTelloVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BA601923AC8FB900AB3238 /* MockTelloVideoTests.swift */; };
+		B6BA601B23AC8FBE00AB3238 /* MockTelloVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BA601923AC8FB900AB3238 /* MockTelloVideoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloFlightTests.swift; sourceTree = "<group>"; };
 		B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloStateTests.swift; sourceTree = "<group>"; };
 		B6B0E662238E54FA003A7984 /* TelloSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloSimulator.swift; sourceTree = "<group>"; };
+		B6BA601923AC8FB900AB3238 /* MockTelloVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTelloVideoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 				130D7B1F2386C99800509A7A /* MockTelloHandlerTests.swift */,
 				B6B0E660238E54BD003A7984 /* MockTelloStateTests.swift */,
 				B6AEAEF4238F740000FB37ED /* MockTelloFlightTests.swift */,
+				B6BA601923AC8FB900AB3238 /* MockTelloVideoTests.swift */,
 				B60C40E32382377D008F1905 /* Info.plist */,
 			);
 			path = TelloSwiftTests;
@@ -320,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BA601B23AC8FBE00AB3238 /* MockTelloVideoTests.swift in Sources */,
 				134F48D4239157F000CC4336 /* MockTelloFlightTests.swift in Sources */,
 				134F48D5239157F000CC4336 /* HandlerTestServer.swift in Sources */,
 				134F48D7239157F000CC4336 /* TelloSimulator.swift in Sources */,
@@ -351,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BA601A23AC8FB900AB3238 /* MockTelloVideoTests.swift in Sources */,
 				B6AEAEF5238F740000FB37ED /* MockTelloFlightTests.swift in Sources */,
 				B66378392384C4B700D15D51 /* HandlerTestServer.swift in Sources */,
 				B6B0E663238E54FA003A7984 /* TelloSimulator.swift in Sources */,

@@ -84,12 +84,19 @@ class TestTelloCommandHandler: ChannelInboundHandler {
     }
 }
 
+class TestTelloStreamHandler: ChannelOutboundHandler {
+    typealias OutboundIn = AddressedEnvelope<ByteBuffer>
+}
+
 class TelloSimulator {
     let eventGroup: MultiThreadedEventLoopGroup
     let bootstrap: DatagramBootstrap
     var channel: Channel?
     let addr: String
     let port: Int
+
+    let streamAddr = "127.0.0.1"
+    let streamPort = 11111
 
     init(addr: String, port: Int) {
         self.addr = addr
@@ -98,7 +105,7 @@ class TelloSimulator {
         bootstrap = DatagramBootstrap(group: eventGroup)
             .channelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
             .channelInitializer({ channel in
-                channel.pipeline.addHandler(TestTelloCommandHandler())
+                channel.pipeline.addHandlers(TestTelloCommandHandler(), TestTelloStreamHandler())
             })
     }
 
@@ -144,5 +151,13 @@ class TelloSimulator {
     func stop() {
         channel!.close(mode: .all, promise: nil)
         try! eventGroup.syncShutdownGracefully()
+    }
+
+    func sendStream() {
+        let socketAddr = try! SocketAddress(ipAddress: streamAddr, port: streamPort)
+        var buffer = channel!.allocator.buffer(capacity: 128)
+        buffer.writeString("HelloThisIsVideoStreamTest")
+        let envelope = AddressedEnvelope(remoteAddress: socketAddr, data: buffer)
+        channel!.writeAndFlush(envelope, promise: nil)
     }
 }

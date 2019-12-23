@@ -168,7 +168,6 @@ open class Tello {
     
     /// Only used in unit tests for now.
     func cleanup() {
-        print("[TELLO-DESTROY-]")
         self.commandChannel.close(mode: .all, promise: nil)
         self.stateChannel.close(mode: .all, promise: nil)
         self.videoChannel.close(mode: .all, promise: nil)
@@ -211,7 +210,6 @@ extension Tello: TelloCommander {
     /// Close each channel and shutdown the event group on main queue, *asynchronously*
     public func shutdown() {
         DispatchQueue.main.async {
-            print("[TELLO-DESTROY-]")
             self.commandChannel.close(mode: .all, promise: nil)
             self.stateChannel.close(mode: .all, promise: nil)
             self.videoChannel.close(mode: .all, promise: nil)
