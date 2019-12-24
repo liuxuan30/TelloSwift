@@ -78,6 +78,10 @@ open class Tello {
     // MARK: functions
     deinit {
         print("[TELLO-FREE-]")
+        if kaTimer != nil {
+            print("[TELLO-FREE-] Detect timer in use yet invalidated")
+            kaTimer!.invalidate()
+        }
         if commandChannel.isActive {
             print("[TELLO-FREE-] MUST CALL shutdown() first, trying to close the channel only, event group may escape")
             commandChannel.close(mode: .all, promise: nil)
