@@ -41,15 +41,23 @@ class MockTelloFlightTests: XCTestCase {
     }
     
     func testKeepAlive() {
+        let e = XCTestExpectation()
         tello.keepAlive(every:1)
-        sleep(3)
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 5)
         tello.invalidate()
         XCTAssertNil(tello.kaTimer)
     }
     
     func testImplicitTimerInvalidate() {
+        let e = XCTestExpectation()
         tello.keepAlive(every:1)
-        sleep(3)
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 5)
     }
     
     func testValidateSpeed() {
