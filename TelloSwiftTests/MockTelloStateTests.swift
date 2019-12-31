@@ -144,6 +144,7 @@ class MockTelloStateTests: XCTestCase {
         
         tmp = Tello()
         tmp?.keepAlive(every: 1)
+        XCTAssertNotNil(tmp?.kaTimer)
         tmpGroup = tmp!.group
         tmp = nil
         XCTAssertNil(tmpGroup)

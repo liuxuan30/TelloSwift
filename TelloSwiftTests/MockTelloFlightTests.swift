@@ -255,6 +255,21 @@ class MockTelloFlightTests: XCTestCase {
         }
         wait(for: [e1, e2], timeout: 1)
     }
+
+    func testShutdown() {
+        tello.keepAlive(every: 1)
+        XCTAssertNotNil(tello.kaTimer)
+        tello.beforeLand(do: "left 10", after: true)
+        XCTAssertNil(tello.kaTimer)
+
+        let e = XCTestExpectation()
+
+        DispatchQueue.main.async {
+            XCTAssertFalse(self.tello.commandChannel.isActive)
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 1)
+    }
     
     func testMovement() {
         XCTAssertFalse(tello.up(by: 19))
