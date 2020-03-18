@@ -238,14 +238,14 @@ class MockTelloFlightTests: XCTestCase {
 
     func testLandAndCommand() {
         let e1 = XCTestExpectation()
-        tello.beforeLand(do: "left 10", after: false)
+        tello.beforeLand(do: "left 10", shutdown: false)
 
         DispatchQueue.main.async {
             XCTAssertTrue(self.tello.commandChannel.isActive)
             e1.fulfill()
         }
 
-        tello.beforeLand(do: "left 10", after: true)
+        tello.beforeLand(do: "left 10", shutdown: true)
 
         let e2 = XCTestExpectation()
 
@@ -259,7 +259,7 @@ class MockTelloFlightTests: XCTestCase {
     func testShutdown() {
         tello.keepAlive(every: 1)
         XCTAssertNotNil(tello.kaTimer)
-        tello.beforeLand(do: "left 10", after: true)
+        tello.beforeLand(do: "left 10", shutdown: true)
         XCTAssertNil(tello.kaTimer)
 
         let e = XCTestExpectation()
