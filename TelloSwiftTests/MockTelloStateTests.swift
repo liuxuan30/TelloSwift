@@ -116,9 +116,11 @@ class MockTelloStateTests: XCTestCase {
     }
     
     func testEDU() {
+        tello.cleanup()
         tello = nil
         var nonEDU: Tello? = Tello(EDU: false)
         XCTAssertFalse(nonEDU!.isEDU)
+        nonEDU?.cleanup()
         nonEDU = nil
         tello = Tello()
         XCTAssertTrue(tello.isEDU)
@@ -132,7 +134,35 @@ class MockTelloStateTests: XCTestCase {
         XCTAssertNil(tello.sdkVersion)
     }
     
-    func testTrim() {
+    func testDeinit() {
+        tello.cleanup()
+        var tmp: Tello? = Tello()
+        weak var tmpGroup = tmp!.group
+        tmp = nil
+        XCTAssertNil(tmpGroup)
+        XCTAssertNil(tmp)
         
+        tmp = Tello()
+        tmp?.keepAlive(every: 1)
+        XCTAssertNotNil(tmp?.kaTimer)
+        tmpGroup = tmp!.group
+        tmp = nil
+        XCTAssertNil(tmpGroup)
+        XCTAssertNil(tmp)
+        let log = """
+        [TELLO-DESTROYED-]
+        [TELLO-FREE-]
+        [TELLO-FREE-] MUST CALL shutdown() first, trying to close the channel only, event group may escape
+        [TELLO-FREE-]
+        [TELLO-FREE-] Detect timer in use yet invalidated
+        [TELLO-FREE-] MUST CALL shutdown() first, trying to close the channel only, event group may escape
+        """
+        print("=========================")
+        print("You should be able to see")
+        print("*************************")
+        print(log)
+        print("*************************")
+        print("if you find the log does not match, check your code or contact dev")
+        print("=========================")
     }
 }

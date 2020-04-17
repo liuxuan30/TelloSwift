@@ -78,6 +78,10 @@ open class Tello {
     // MARK: functions
     deinit {
         print("[TELLO-FREE-]")
+        if kaTimer != nil {
+            print("[TELLO-FREE-] Detect timer in use yet invalidated")
+            invalidate()
+        }
         if commandChannel.isActive {
             print("[TELLO-FREE-] MUST CALL shutdown() first, trying to close the channel only, event group may escape")
             commandChannel.close(mode: .all, promise: nil)
@@ -148,26 +152,36 @@ open class Tello {
         return ok == "ok"
     }
     
-    
+    var kaTimer: Timer?
     /// keep Tello alive by sending a command every 10 sec by default
     /// **USE AT YOUR OWN RISK**
     /// - Parameter interval: UInt32
     public func keepAlive(every interval: UInt32 = 10) {
-        let alive = OperationQueue()
-        alive.qualityOfService = .background
-        alive.underlyingQueue = DispatchQueue.global(qos: .background)
-        alive.maxConcurrentOperationCount = 1
-        alive.addOperation { [weak self] in
-            while ((self?.commandChannel.isActive ?? false)) {
-                self?.telloAsyncCommand(cmd: "speed?", successHandler: nil, failureHandler: nil)
-                sleep(interval)
+        
+        let date = Date().addingTimeInterval(TimeInterval(interval))
+        
+        if kaTimer == nil {
+            kaTimer = Timer(fire: date, interval: TimeInterval(interval), repeats: true) { [weak self] t in
+                if let weakSelf = self, weakSelf.commandChannel.isActive {
+                    self?.telloAsyncCommand(cmd: "speed?", successHandler: nil, failureHandler: nil)
+                    print("Tello keep alive:\(Date())")
+                }
             }
-            
+            RunLoop.main.add(kaTimer!, forMode: .common)
         }
+    }
+    
+    /// Make sure you call this method on the same thread as keepAlive()
+    public func invalidate() {
+        kaTimer?.invalidate()
+        kaTimer = nil
     }
     
     /// Only used in unit tests for now.
     func cleanup() {
+        if kaTimer != nil {
+            invalidate()
+        }
         self.commandChannel.close(mode: .all, promise: nil)
         self.stateChannel.close(mode: .all, promise: nil)
         self.videoChannel.close(mode: .all, promise: nil)
@@ -208,7 +222,14 @@ open class Tello {
 extension Tello: TelloCommander {
     
     /// Close each channel and shutdown the event group on main queue, *asynchronously*
+    ///
+    /// If you ever called keepAlive(), you should call invalidate() on the same thread before this method, or make sure you call shutdown() on the same thread as when you call keepAlive()
     public func shutdown() {
+        // only invalidate timer in current thread
+        if kaTimer != nil {
+            print("Last resort to release timer, all resource free is not guaranteed")
+            invalidate()
+        }
         DispatchQueue.main.async {
             self.commandChannel.close(mode: .all, promise: nil)
             self.stateChannel.close(mode: .all, promise: nil)

@@ -31,13 +31,35 @@ class MockTelloFlightTests: XCTestCase {
         // cleanup the socket and event loop resources, if not called, UT would fail
         tello.cleanup()
         simulator.stop()
+        
+        XCTAssertNil(tello.kaTimer)
 
         weak var tmpGroup = tello.group
         tello = nil
         simulator = nil
         XCTAssertNil(tmpGroup) // check if tello has called deinit
     }
-
+    
+    func testKeepAlive() {
+        let e = XCTestExpectation()
+        tello.keepAlive(every:1)
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 5)
+        tello.invalidate()
+        XCTAssertNil(tello.kaTimer)
+    }
+    
+    func testImplicitTimerInvalidate() {
+        let e = XCTestExpectation()
+        tello.keepAlive(every:1)
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 5)
+    }
+    
     func testValidateSpeed() {
         let speedTestsWithRange = ["speed": [9, 10, 11, 19, 20, 21, 50, 59, 60, 61, 99, 100, 101],
                                    "speedRange": [10...100],
@@ -216,14 +238,14 @@ class MockTelloFlightTests: XCTestCase {
 
     func testLandAndCommand() {
         let e1 = XCTestExpectation()
-        tello.beforeLand(do: "left 10", after: false)
+        tello.beforeLand(do: "left 10", shutdown: false)
 
         DispatchQueue.main.async {
             XCTAssertTrue(self.tello.commandChannel.isActive)
             e1.fulfill()
         }
 
-        tello.beforeLand(do: "left 10", after: true)
+        tello.beforeLand(do: "left 10", shutdown: true)
 
         let e2 = XCTestExpectation()
 
@@ -232,6 +254,21 @@ class MockTelloFlightTests: XCTestCase {
             e2.fulfill()
         }
         wait(for: [e1, e2], timeout: 1)
+    }
+
+    func testShutdown() {
+        tello.keepAlive(every: 1)
+        XCTAssertNotNil(tello.kaTimer)
+        tello.beforeLand(do: "left 10", shutdown: true)
+        XCTAssertNil(tello.kaTimer)
+
+        let e = XCTestExpectation()
+
+        DispatchQueue.main.async {
+            XCTAssertFalse(self.tello.commandChannel.isActive)
+            e.fulfill()
+        }
+        wait(for: [e], timeout: 1)
     }
     
     func testMovement() {
