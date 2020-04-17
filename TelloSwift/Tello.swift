@@ -163,8 +163,8 @@ open class Tello {
         if kaTimer == nil {
             kaTimer = Timer(fire: date, interval: TimeInterval(interval), repeats: true) { [weak self] t in
                 if let weakSelf = self, weakSelf.commandChannel.isActive {
-                    print(Date())
                     self?.telloAsyncCommand(cmd: "speed?", successHandler: nil, failureHandler: nil)
+                    print("Tello keep alive:\(Date())")
                 }
             }
             RunLoop.main.add(kaTimer!, forMode: .common)
