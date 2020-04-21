@@ -14,6 +14,7 @@ TelloSwift is built upon SwiftNIO purely in Swift, providing flexible protocols 
 * Event-driven duplex command handlers based on SwiftNIO, powering sync and async command execution;
 * Many useful built-in control commands to design your own flight flow;
 * Full coverage for both Tello SDK and Tello 2.0 SDK (except for swarm)
+* Provide a default H264 video decoder, more details [here](https://github.com/liuxuan30/TelloSwift/tree/master/TelloVideoDecoder) 
 
 ## Requirement
 * Xcode 11 / Swift 5
@@ -95,4 +96,3 @@ It will directly forward the raw stream bytes to the delegate. To turn on the ca
 
 ## TODO list
 1. Swarm support
-2. Better video streaming solution

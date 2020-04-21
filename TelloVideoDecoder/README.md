@@ -1,7 +1,7 @@
 # TelloVideoH264Decoder
-This contains a demo macOS app to illustrate how to use the TelloVideoH264Decoder
+This contains a demo macOS app to illustrate how to use the `TelloVideoH264Decoder`
 
-The TelloVideoH264Decoder serves like a demo decoder that can meet common requirement
+The `TelloVideoH264Decoder` serves like a demo decoder that can meet common requirement
 
 I'm no expert on video decoding and I merely assemble code from different places and make it work. It could be a little buggy, and not world-class flexible for some configurations (e.g. `decodeFlags`) 
 
@@ -10,9 +10,13 @@ Therefore I will be grateful that if you can send me pull requests to make it be
 ## Get a valid NAL Unit
 You need to first generate valid NALU either by yourself or by `getNalUnits()`/ `readNalUnits()`.
 
-`getNalUnits(streamBuffer: Array<UInt8>) -> NALUnit?` will get all valid NALU and abandon incomplete NALU (data before next start code)
+>getNalUnits(streamBuffer: Array<UInt8>) -> NALUnit?
 
-`readNalUnits(streamBuffer:inout Array<UInt8>) -> NALUnit?` will consume `streamBuffer`. To stop reading, call `stopProcessing()`
+will get all valid NALU and abandon incomplete NALU (data before next start code)
+
+>readNalUnits(streamBuffer:inout Array<UInt8>) -> NALUnit?
+
+will consume `streamBuffer`. To stop reading, call `stopProcessing()`
 
 ## Get CMSampleBuffer from NALU
 Get a CMSampleBuffer by `getCMSampleBuffer(from nalu: NALUnit)`
