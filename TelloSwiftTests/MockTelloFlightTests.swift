@@ -47,7 +47,7 @@ class MockTelloFlightTests: XCTestCase {
             e.fulfill()
         }
         wait(for: [e], timeout: 5)
-        tello.invalidate()
+        tello.clearTimer()
         XCTAssertNil(tello.kaTimer)
     }
     
