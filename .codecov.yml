@@ -1,3 +1,4 @@
 ignore:
   - "TelloSwiftTests"
   - "Package.swift"
+  - "TelloVideoDecoder"

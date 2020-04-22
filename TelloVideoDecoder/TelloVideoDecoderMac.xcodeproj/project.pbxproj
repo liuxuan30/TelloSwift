@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6508FF2244D3D0100728AD4 /* TelloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6508FF1244D3D0100728AD4 /* TelloSwift.framework */; };
+		B6508FF3244D3D0100728AD4 /* TelloSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6508FF1244D3D0100728AD4 /* TelloSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6508FF6244D453C00728AD4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B6508FF5244D453C00728AD4 /* README.md */; };
+		B6F45860244D39C300A94272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4585F244D39C300A94272 /* AppDelegate.swift */; };
+		B6F45862244D39C300A94272 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F45861244D39C300A94272 /* ViewController.swift */; };
+		B6F45864244D39C500A94272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6F45863244D39C500A94272 /* Assets.xcassets */; };
+		B6F45867244D39C600A94272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F45865244D39C600A94272 /* Main.storyboard */; };
+		B6F45873244D39C600A94272 /* TelloVideoDecoderMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F45872244D39C600A94272 /* TelloVideoDecoderMacTests.swift */; };
+		B6F4587E244D39C600A94272 /* TelloVideoDecoderMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4587D244D39C600A94272 /* TelloVideoDecoderMacUITests.swift */; };
+		B6F4588C244D3A1000A94272 /* TelloVideoH264Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4588B244D3A1000A94272 /* TelloVideoH264Decoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6F4586F244D39C600A94272 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6F45854244D39C300A94272 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6F4585B244D39C300A94272;
+			remoteInfo = TelloVideoDecoderMac;
+		};
+		B6F4587A244D39C600A94272 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6F45854244D39C300A94272 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6F4585B244D39C300A94272;
+			remoteInfo = TelloVideoDecoderMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B6508FF4244D3D0100728AD4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B6508FF3244D3D0100728AD4 /* TelloSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B6508FF1244D3D0100728AD4 /* TelloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TelloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6508FF5244D453C00728AD4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B6F4585C244D39C300A94272 /* TelloVideoDecoderMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelloVideoDecoderMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F4585F244D39C300A94272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B6F45861244D39C300A94272 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B6F45863244D39C500A94272 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6F45866244D39C600A94272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6F45868244D39C600A94272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F45869244D39C600A94272 /* TelloVideoDecoderMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TelloVideoDecoderMac.entitlements; sourceTree = "<group>"; };
+		B6F4586E244D39C600A94272 /* TelloVideoDecoderMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelloVideoDecoderMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F45872244D39C600A94272 /* TelloVideoDecoderMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloVideoDecoderMacTests.swift; sourceTree = "<group>"; };
+		B6F45874244D39C600A94272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F45879244D39C600A94272 /* TelloVideoDecoderMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelloVideoDecoderMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F4587D244D39C600A94272 /* TelloVideoDecoderMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelloVideoDecoderMacUITests.swift; sourceTree = "<group>"; };
+		B6F4587F244D39C600A94272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F4588B244D3A1000A94272 /* TelloVideoH264Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelloVideoH264Decoder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6F45859244D39C300A94272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6508FF2244D3D0100728AD4 /* TelloSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F4586B244D39C600A94272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F45876244D39C600A94272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B6508FF0244D3D0100728AD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6508FF1244D3D0100728AD4 /* TelloSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6F45853244D39C300A94272 = {
+			isa = PBXGroup;
+			children = (
+				B6508FF5244D453C00728AD4 /* README.md */,
+				B6F4588B244D3A1000A94272 /* TelloVideoH264Decoder.swift */,
+				B6F4585E244D39C300A94272 /* TelloVideoDecoderMac */,
+				B6F45871244D39C600A94272 /* TelloVideoDecoderMacTests */,
+				B6F4587C244D39C600A94272 /* TelloVideoDecoderMacUITests */,
+				B6F4585D244D39C300A94272 /* Products */,
+				B6508FF0244D3D0100728AD4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B6F4585D244D39C300A94272 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6F4585C244D39C300A94272 /* TelloVideoDecoderMac.app */,
+				B6F4586E244D39C600A94272 /* TelloVideoDecoderMacTests.xctest */,
+				B6F45879244D39C600A94272 /* TelloVideoDecoderMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6F4585E244D39C300A94272 /* TelloVideoDecoderMac */ = {
+			isa = PBXGroup;
+			children = (
+				B6F4585F244D39C300A94272 /* AppDelegate.swift */,
+				B6F45861244D39C300A94272 /* ViewController.swift */,
+				B6F45863244D39C500A94272 /* Assets.xcassets */,
+				B6F45865244D39C600A94272 /* Main.storyboard */,
+				B6F45868244D39C600A94272 /* Info.plist */,
+				B6F45869244D39C600A94272 /* TelloVideoDecoderMac.entitlements */,
+			);
+			path = TelloVideoDecoderMac;
+			sourceTree = "<group>";
+		};
+		B6F45871244D39C600A94272 /* TelloVideoDecoderMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				B6F45872244D39C600A94272 /* TelloVideoDecoderMacTests.swift */,
+				B6F45874244D39C600A94272 /* Info.plist */,
+			);
+			path = TelloVideoDecoderMacTests;
+			sourceTree = "<group>";
+		};
+		B6F4587C244D39C600A94272 /* TelloVideoDecoderMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B6F4587D244D39C600A94272 /* TelloVideoDecoderMacUITests.swift */,
+				B6F4587F244D39C600A94272 /* Info.plist */,
+			);
+			path = TelloVideoDecoderMacUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6F4585B244D39C300A94272 /* TelloVideoDecoderMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6F45882244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMac" */;
+			buildPhases = (
+				B6F45858244D39C300A94272 /* Sources */,
+				B6F45859244D39C300A94272 /* Frameworks */,
+				B6F4585A244D39C300A94272 /* Resources */,
+				B6508FF4244D3D0100728AD4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TelloVideoDecoderMac;
+			productName = TelloVideoDecoderMac;
+			productReference = B6F4585C244D39C300A94272 /* TelloVideoDecoderMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B6F4586D244D39C600A94272 /* TelloVideoDecoderMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6F45885244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMacTests" */;
+			buildPhases = (
+				B6F4586A244D39C600A94272 /* Sources */,
+				B6F4586B244D39C600A94272 /* Frameworks */,
+				B6F4586C244D39C600A94272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6F45870244D39C600A94272 /* PBXTargetDependency */,
+			);
+			name = TelloVideoDecoderMacTests;
+			productName = TelloVideoDecoderMacTests;
+			productReference = B6F4586E244D39C600A94272 /* TelloVideoDecoderMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B6F45878244D39C600A94272 /* TelloVideoDecoderMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6F45888244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMacUITests" */;
+			buildPhases = (
+				B6F45875244D39C600A94272 /* Sources */,
+				B6F45876244D39C600A94272 /* Frameworks */,
+				B6F45877244D39C600A94272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6F4587B244D39C600A94272 /* PBXTargetDependency */,
+			);
+			name = TelloVideoDecoderMacUITests;
+			productName = TelloVideoDecoderMacUITests;
+			productReference = B6F45879244D39C600A94272 /* TelloVideoDecoderMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6F45854244D39C300A94272 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = TelloSwift;
+				TargetAttributes = {
+					B6F4585B244D39C300A94272 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					B6F4586D244D39C600A94272 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = B6F4585B244D39C300A94272;
+					};
+					B6F45878244D39C600A94272 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = B6F4585B244D39C300A94272;
+					};
+				};
+			};
+			buildConfigurationList = B6F45857244D39C300A94272 /* Build configuration list for PBXProject "TelloVideoDecoderMac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B6F45853244D39C300A94272;
+			productRefGroup = B6F4585D244D39C300A94272 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6F4585B244D39C300A94272 /* TelloVideoDecoderMac */,
+				B6F4586D244D39C600A94272 /* TelloVideoDecoderMacTests */,
+				B6F45878244D39C600A94272 /* TelloVideoDecoderMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6F4585A244D39C300A94272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6508FF6244D453C00728AD4 /* README.md in Resources */,
+				B6F45864244D39C500A94272 /* Assets.xcassets in Resources */,
+				B6F45867244D39C600A94272 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F4586C244D39C600A94272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F45877244D39C600A94272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6F45858244D39C300A94272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6F45862244D39C300A94272 /* ViewController.swift in Sources */,
+				B6F45860244D39C300A94272 /* AppDelegate.swift in Sources */,
+				B6F4588C244D3A1000A94272 /* TelloVideoH264Decoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F4586A244D39C600A94272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6F45873244D39C600A94272 /* TelloVideoDecoderMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F45875244D39C600A94272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6F4587E244D39C600A94272 /* TelloVideoDecoderMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B6F45870244D39C600A94272 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6F4585B244D39C300A94272 /* TelloVideoDecoderMac */;
+			targetProxy = B6F4586F244D39C600A94272 /* PBXContainerItemProxy */;
+		};
+		B6F4587B244D39C600A94272 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6F4585B244D39C300A94272 /* TelloVideoDecoderMac */;
+			targetProxy = B6F4587A244D39C600A94272 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B6F45865244D39C600A94272 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6F45866244D39C600A94272 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6F45880244D39C600A94272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B6F45881244D39C600A94272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B6F45883244D39C600A94272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TelloVideoDecoderMac/TelloVideoDecoderMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B6F45884244D39C600A94272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TelloVideoDecoderMac/TelloVideoDecoderMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B6F45886244D39C600A94272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelloVideoDecoderMac.app/Contents/MacOS/TelloVideoDecoderMac";
+			};
+			name = Debug;
+		};
+		B6F45887244D39C600A94272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelloVideoDecoderMac.app/Contents/MacOS/TelloVideoDecoderMac";
+			};
+			name = Release;
+		};
+		B6F45889244D39C600A94272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TelloVideoDecoderMac;
+			};
+			name = Debug;
+		};
+		B6F4588A244D39C600A94272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TelloVideoDecoderMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.telloswift.TelloVideoDecoderMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TelloVideoDecoderMac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6F45857244D39C300A94272 /* Build configuration list for PBXProject "TelloVideoDecoderMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6F45880244D39C600A94272 /* Debug */,
+				B6F45881244D39C600A94272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6F45882244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6F45883244D39C600A94272 /* Debug */,
+				B6F45884244D39C600A94272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6F45885244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6F45886244D39C600A94272 /* Debug */,
+				B6F45887244D39C600A94272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6F45888244D39C600A94272 /* Build configuration list for PBXNativeTarget "TelloVideoDecoderMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6F45889244D39C600A94272 /* Debug */,
+				B6F4588A244D39C600A94272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B6F45854244D39C300A94272 /* Project object */;
+}

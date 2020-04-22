@@ -170,11 +170,20 @@ open class Tello {
             RunLoop.main.add(kaTimer!, forMode: .common)
         }
     }
-    
+
+    /// Invalidate timer and set it to nil
+    ///
     /// Make sure you call this method on the same thread as keepAlive()
     public func invalidate() {
         kaTimer?.invalidate()
         kaTimer = nil
+    }
+
+    /// lazy name for invalidate() to clear timer
+    ///
+    /// Make sure you call this method on the same thread as keepAlive()
+    public func clearTimer() {
+        invalidate()
     }
     
     /// Only used in unit tests for now.
