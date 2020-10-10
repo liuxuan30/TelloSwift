@@ -3,11 +3,11 @@ language: swift
 xcode_project: TelloSwift.xcodeproj
 matrix:
   include:
-    - osx_image: xcode11.2
+    - osx_image: xcode12
       env: PLATFORM="iOS"
       xcode_scheme: TelloSwift
-      xcode_destination: platform=iOS Simulator,OS=13.2.2,name=iPhone 11 Pro
-    - osx_image: xcode11.2
+      xcode_destination: platform=iOS Simulator,name=iPhone 11 Pro
+    - osx_image: xcode12
       env: PLATFORM="macOS"
       xcode_scheme: TelloSwiftTests-macOS
 after_success:
