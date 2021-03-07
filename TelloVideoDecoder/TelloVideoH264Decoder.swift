@@ -62,6 +62,8 @@ public class TelloVideoH264Decoder {
     }
 
     /// This is a wrapper of VTDecompressionSessionDecodeFrame(_:sampleBuffer:flags:infoFlagsOut:outputHandler:)
+    ///
+    /// This function cannot be called with a session created with a VTDecompressionOutputCallbackRecord.
     /// - Parameters:
     ///   - sampleBuffer: CMSampleBuffer
     ///   - outputHandler: @escaping VTDecompressionOutputHandler
@@ -76,6 +78,8 @@ public class TelloVideoH264Decoder {
     /// - Returns: CMSampleBuffer?
     public func getCMSampleBuffer(from nalu: NALUnit) -> CMSampleBuffer? {
 //        print("Read Nalu size \(nalu.count)");
+        guard nalu.count > 4 else { return nil }
+
         var mNalu = nalu
         let naluType = nalu[4] & 0x1f
 
@@ -110,7 +114,7 @@ public class TelloVideoH264Decoder {
         guard streamBuffer.count != 0 else { return nil }
 
         //make sure start with start code
-        if streamBuffer.count < 5 || Array(streamBuffer[0...3]) != startCode {
+        if streamBuffer.count < 5 || streamBuffer[0...3] != startCode[...] {
             return nil
         }
 
@@ -136,7 +140,7 @@ public class TelloVideoH264Decoder {
         guard streamBuffer.count != 0 else { return nil }
 
         //make sure start with start code
-        if streamBuffer.count < 5 || Array(streamBuffer[0...3]) != startCode {
+        if streamBuffer.count < 5 || streamBuffer[0...3] != startCode[...] {
             return nil
         }
 
