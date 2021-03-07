@@ -110,7 +110,7 @@ public class TelloVideoH264Decoder {
         guard streamBuffer.count != 0 else { return nil }
 
         //make sure start with start code
-        if streamBuffer.count < 5 || Array(streamBuffer[0...3]) != startCode {
+        if streamBuffer.count < 5 || streamBuffer[0...3] != startCode[...] {
             return nil
         }
 
