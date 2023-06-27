@@ -89,7 +89,7 @@ extension Tello: DroneTello {
     
     public var height: Double {
         let h = telloSyncCommand(cmd: "height?").toDouble()
-        return h != Double.nan ? h * 10 : h
+        return !h.isNaN ? h * 10 : h
     }
     
     public var time: Double {

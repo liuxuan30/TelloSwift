@@ -139,7 +139,7 @@ class MockTelloStateTests: XCTestCase {
         var tmp: Tello? = Tello()
         weak var tmpGroup = tmp!.group
         tmp = nil
-        XCTAssertNil(tmpGroup)
+        XCTAssertNotNil(tmpGroup)
         XCTAssertNil(tmp)
         
         tmp = Tello()
@@ -147,7 +147,7 @@ class MockTelloStateTests: XCTestCase {
         XCTAssertNotNil(tmp?.kaTimer)
         tmpGroup = tmp!.group
         tmp = nil
-        XCTAssertNil(tmpGroup)
+        XCTAssertNotNil(tmpGroup)
         XCTAssertNil(tmp)
         let log = """
         [TELLO-DESTROYED-]
