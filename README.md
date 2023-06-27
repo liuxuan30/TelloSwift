@@ -22,7 +22,7 @@ TelloSwift is built upon SwiftNIO purely in Swift, providing flexible protocols 
 * macOS >= 10.15*
 * Ubuntu**
 
-\*For simplicity and Catalyst, I choose 10.15, but the source code itself should support macOS since 10.12, aligned with SwiftNIO's requirement.
+\*For simplicity and Catalyst, I choose 10.15, but the source code itself should support macOS since 10.13, aligned with SwiftNIO's requirement.
 
 \*\* For Linux OS, refer Swift and SwiftNIO compatibility. 
 
