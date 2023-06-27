@@ -63,7 +63,7 @@ takeoffAnd(operation: @escaping () -> Void)
 ```
 You can even chain the command:
 ```swift
-tello.chain("takeoff).chain("forward 20", failover: .hover).chain("land")
+tello.chain("takeoff").chain("forward 20", failover: .hover).chain("land")
 ```
 After you finished playing with your drone, simply call `tello.shutdown()`, which will close the channel and free NIO event loop resources.
 
