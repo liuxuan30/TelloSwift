@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "TelloSwift", targets: ["TelloSwift"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.13.1"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.100.0"),
     ],
     targets: [
         .target(name: "TelloSwift", dependencies: ["NIO"], path:"TelloSwift"),
